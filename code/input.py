@@ -1,5 +1,5 @@
-boy_name = raw_input('What is your name?')
-girl_name = raw_input('What is my name?')
+boy_name = input('What is your name?')
+girl_name = input('What is my name?')
 # name.assertEqual(boy_name, girl_name)
 print(boy_name)
 print(girl_name)
