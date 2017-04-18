@@ -1,8 +1,8 @@
 import unittest
 from code import something
 
-class TestStringMethods(unittest.TestCase):
 
+class TestStringMethods(unittest.TestCase):
     def test_upper(self):
         self.assertEqual('foo'.upper(), 'FOO')
 
@@ -17,8 +17,6 @@ class TestStringMethods(unittest.TestCase):
         with self.assertRaises(TypeError):
             s.split(2)
 
-    def test_what_am_i_doing(self):
-        self.assertEqual(something.foo(), 5)
 
 if __name__ == '__main__':
     unittest.main()
