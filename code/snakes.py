@@ -6,7 +6,7 @@ def is_venomous(snake):
     return 'Snakes???'
 
 animals = ['cat','bird','snake','dog','horse','goose','Jon Bon Jovi']
-# I am 99% sure this very wrong.  But I can't run it like I want to
+# I am 99% sure this very wrong.
 def is_animal(animals):
     if 'snake' in animals:
         return 'Snake'
