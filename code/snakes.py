@@ -121,7 +121,7 @@ def is_it_snek(animal, i_haz_sign, color1, color2):
     return [is_animal(animal), snake_name(i_haz_sign), pretty_snake(color1, color2)]
 
 #this does not work like I want it to yet....
-results_list=is_it_snek('poo','I am a Coral Snake','red','black')
-print(results_list)
+# results_list=is_it_snek('poo','I am a Coral Snake','red','black')
+# print(results_list)
 
     
