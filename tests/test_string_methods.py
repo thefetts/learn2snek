@@ -1,5 +1,4 @@
 import unittest
-from code import something
 
 
 class TestStringMethods(unittest.TestCase):
