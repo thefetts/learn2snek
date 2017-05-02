@@ -3,7 +3,7 @@ import unittest
 from code import pokemon
 
 
-class TestSnakes(unittest.TestCase):
+class TestPokemon(unittest.TestCase):
     def test_pokemon_can_deal_damage(self):
         result = pokemon.attack('Pikachu', 'Butterfree')
         self.assertEqual(result, [
@@ -28,8 +28,9 @@ class TestSnakes(unittest.TestCase):
             'Pikachu hits Butterfree for 50!',
             'Butterfree has fainted!'
         ])
+
     def test_epic_pokemon(self):
-        result = pokemon.battle('Mew','Mewtwo')
+        result = pokemon.battle('Mew', 'Mewtwo')
         self.assertEqual(result, [
             'Mew hits Mewtwo for 100!',
             'Mewtwo has 400 HP remaining.',
@@ -50,8 +51,9 @@ class TestSnakes(unittest.TestCase):
             'Mew hits Mewtwo for 100!',
             'Mewtwo has fainted!'
         ])
-def test_sick_pokemon(self):
-        result = pokemon.battle('Mew','Oddish')
+
+    def test_sick_pokemon(self):
+        result = pokemon.battle('Mew', 'Oddish')
         self.assertEqual(result, [
             'Oddish has fainted!'
         ])

@@ -7,14 +7,3 @@ def grams(anagram, nag_a_ram):
         return "is anagram!"
     else:
         return "bropen!!"
-
-
-
-
-        # for a, b in zip(gram_1, gram_2):
-        #     if a != b:
-        #         print (a, "is different from", b)
-        #         break
-        #     else:
-        #         print ("is anagram!")
-        #         break

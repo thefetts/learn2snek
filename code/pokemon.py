@@ -1,45 +1,33 @@
 import copy
 
+class Pokemon:
+    def __init__(self, name, health, power, speed):
+        self.name = name
+        self.health = health
+        self.power = power
+        self.speed = speed
+
+
 data = {
-    'pokedex': {
-        'Pikachu': {
-            'health': 100,
-            'power': 50
-        },
-
-        'Butterfree': {
-            'health': 60,
-            'power': 40
-        },
-
-        'Charizard': {
-            'health': 110,
-            'power': 70
-        },
-
-        'Mew': {
-            'health': 500,
-            'power': 100
-        },
-
-        'Mewtwo': {
-            'health': 500,
-            'power': 100
-        },
-
-        'Oddish': {
-            'health': 0,
-            'power': 100
-        }
-    }
+    'roster': [
+        Pokemon('Oddish', 0, 100, 50),
+        Pokemon('Pikachu', 100, 50, 70),
+        Pokemon('Butterfree', 60, 40, 40),
+        Pokemon('Charizard', 110, 70, 80),
+        Pokemon('Mew', 500, 100, 90),
+        Pokemon('Mewtwo', 500, 100, 80)
+    ]
 }
 
 
 def attack(offense, defense):
     combat_log = []
-    pika_power = data['pokedex'][offense]['power']
-    ouchies = data['pokedex'][defense]['health'] - pika_power
-    data['pokedex'][defense]['health'] = ouchies
+    attacker = find_by_name(offense)
+    defender = find_by_name(defense)
+
+    pika_power = attacker.power
+    ouchies = defender.health - pika_power
+    defender.health = ouchies
     combat_log.append(offense + ' hits ' + defense + ' for ' + str(pika_power) + '!')
     if ouchies > 0:
         combat_log.append(defense + ' has ' + str(ouchies) + ' HP remaining.')
@@ -48,19 +36,26 @@ def attack(offense, defense):
     return combat_log
 
 
+def find_by_name(name):
+    return list(filter(lambda pokemon: pokemon.name == name, data['roster']))[0]
+
+
 def battle(offense, defense):
-    pokedex_copy = copy.deepcopy(data['pokedex'])
-    if data['pokedex'][defense]['health'] <= 0:
+    roster_copy = copy.deepcopy(data['roster'])
+    attacker = find_by_name(offense)
+    defender = find_by_name(defense)
+
+    if defender.health <= 0:
         return [defense + ' has fainted!']
-    elif data['pokedex'][offense]['health'] <= 0:
+    elif attacker.health <= 0:
         return [offense + ' has fainted!']
     else:
         results = []
-        while data['pokedex'][offense]['health'] > 0:
+        while attacker.health > 0:
             results += attack(offense, defense)
-            if data['pokedex'][defense]['health'] > 0:
+            if defender.health > 0:
                 results += attack(defense, offense)
             else:
                 break
-        data['pokedex'] = pokedex_copy
+        data['roster'] = roster_copy
         return results
